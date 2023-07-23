@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  webpack(config) {
+    config.module.rules.push({
+      loader: '@svgr/webpack',
+      options: {
+        prettier: false,
+        titleProp: true
+      },
+      test: /\.svg$/,
+    });
 
-module.exports = nextConfig
+    return config;
+  },
+};
+
+module.exports = nextConfig;
