@@ -1,6 +1,10 @@
-import { Button, Heading, Tag, Text } from "@/components";
+"use client";
+import { useState } from "react";
+import { Button, Heading, Rating, Tag, Text } from "@/components";
 
 const Home = () => {
+  const [rating, setRating] = useState(4);
+
   return (
     <main>
       <Heading variant="h1">Some title</Heading>
@@ -19,6 +23,7 @@ const Home = () => {
         веб-дизайнерами уровня middle.
       </Text>
       <Tag>medium tag</Tag>
+      <Rating rating={rating} isEditable={true} setRating={setRating}/>
     </main>
   );
 };
