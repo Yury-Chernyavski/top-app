@@ -1,7 +1,5 @@
 import React from "react";
-
 import styles from "./Heading.module.css";
-
 import { IHeading } from "@/models";
 
 export const Heading = ({ variant, children }: IHeading) => {

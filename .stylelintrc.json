@@ -8,7 +8,7 @@
   "rules": {
     "color-hex-case": "upper",
     "selector-class-pattern": "^.*$",
-    "media-feature-range-notation": "context",
+    "media-feature-range-notation": "prefix",
     "declaration-block-no-redundant-longhand-properties": [
       true,
       {

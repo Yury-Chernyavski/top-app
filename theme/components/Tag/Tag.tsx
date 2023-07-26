@@ -3,10 +3,10 @@ import { ITag } from "@/models";
 import cn from "classnames";
 import style from "./Tag.module.css";
 
-export const Tag = ({ size = "m", children, color = "none", href}: ITag) => {
+export const Tag = ({ size = "m", children, color = "none", href, className}: ITag) => {
   return (
     <div
-      className={cn(style.tag, {
+      className={cn(style.tag, className, {
         [style.s]: size === "s",
         [style.m]: size === "m",
         [style.none]: color === "none",

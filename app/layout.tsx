@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Footer, Header, Sidebar } from "@/components/common";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,15 @@ const RootLayout = ({
 }) => {
   return (
     <html lang="en">
-    <body className={inter.className}>{children}</body>
+    <body className={inter.className}>
+    <div className="contentWrapper">
+      <Header />
+      <Sidebar />
+      {children}
+      <Footer />
+    </div>
+
+    </body>
     </html>
   );
 };
