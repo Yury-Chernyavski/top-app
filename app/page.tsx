@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Button, Heading, Rating, Tag, Text } from "@/theme/components";
 
@@ -16,13 +17,17 @@ const Home = () => {
         arrow="down"
       >Second button</Button>
       <Text>
-        Студенты освоят не только hard skills, необходимые для работы веб-дизайнером, но и soft
-        skills — навыки, которые позволят эффективно взаимодействовать в команде с менеджерами,
-        разработчиками и маркетологами. Выпускники факультета могут успешно конкурировать с
-        веб-дизайнерами уровня middle.
+        Students will master not only the hard skills necessary to work as a web designer, but also
+        soft skills - skills that will allow them to effectively interact in a team with managers,
+        developers and marketers. Graduates of the faculty can successfully compete with
+        middle-level web designers.
       </Text>
       <Tag>medium tag</Tag>
-      <Rating rating={rating} isEditable={true} setRating={setRating}/>
+      <Rating
+        rating={rating}
+        isEditable={true}
+        setRating={setRating}
+      />
     </main>
   );
 };
