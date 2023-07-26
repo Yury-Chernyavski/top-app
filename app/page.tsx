@@ -1,6 +1,5 @@
-"use client";
 import { useState } from "react";
-import { Button, Heading, Rating, Tag, Text } from "@/components";
+import { Button, Heading, Rating, Tag, Text } from "@/theme/components";
 
 const Home = () => {
   const [rating, setRating] = useState(4);
