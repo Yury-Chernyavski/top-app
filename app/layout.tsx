@@ -1,4 +1,5 @@
 import "./globals.css";
+import style from "./layout.module.css";
 import { Inter } from "next/font/google";
 import { Footer, Header, Sidebar } from "@/components/common";
 
@@ -17,13 +18,12 @@ const RootLayout = ({
   return (
     <html lang="en">
     <body className={inter.className}>
-    <div className="contentWrapper">
+    <div className={style.contentWrapper}>
       <Header />
       <Sidebar />
       {children}
       <Footer />
     </div>
-
     </body>
     </html>
   );

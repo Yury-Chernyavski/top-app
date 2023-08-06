@@ -1,9 +1,12 @@
-"use client";
-import { useState } from "react";
-import { Button, Heading, Rating, Tag, Text } from "@/theme/components";
+import { Button, Heading, Tag, Text } from "@/theme/components";
+import Link from "next/link";
+import React from "react";
+import { getMenu } from "@/actions/getMenu";
 
-const Home = () => {
-  const [rating, setRating] = useState(4);
+
+const Home = async () => {
+
+  const menu = await getMenu();
 
   return (
     <main>
@@ -22,12 +25,13 @@ const Home = () => {
         developers and marketers. Graduates of the faculty can successfully compete with
         middle-level web designers.
       </Text>
-      <Tag>medium tag</Tag>
-      <Rating
-        rating={rating}
-        isEditable={true}
-        setRating={setRating}
-      />
+      <Tag color="green">medium tag</Tag>
+      <ul>
+        {menu.map(m => (
+          <li key={m._id.secondCategory}>
+            <Link href={`#`}>{m._id.secondCategory}</Link>
+          </li>))}
+      </ul>
     </main>
   );
 };

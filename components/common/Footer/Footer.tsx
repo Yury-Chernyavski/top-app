@@ -4,9 +4,9 @@ import style from "./Footer.module.css";
 import cn from "classnames";
 import { format } from "date-fns";
 
-export const Footer = ({ className }) => {
+export const Footer = () => {
   return (
-    <footer className={cn(className, style.footer)}>
+    <footer className={cn(style.footer)}>
       <div className={style.contentWrapper}>
         <Text variant="m">OwlTop © 2020 - {format(new Date(), "yyyy")} All rights Reserved</Text>
         <a
