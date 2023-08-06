@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { KeyboardEvent, useEffect, useState } from "react";
 import { IRating } from "@/models";
 import StarIcon from "./assets/Vector.svg";
 import cn from "classnames";
 import style from "./Rating.module.css";
 
 export const Rating = ({ isEditable = false, rating, setRating }: IRating) => {
-  const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+  const [ratingArray, setRatingArray] = useState<React.JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {
     constructRating(rating);
@@ -24,7 +24,8 @@ export const Rating = ({ isEditable = false, rating, setRating }: IRating) => {
             })
           }
           tabIndex={isEditable ? 0 : -1}
-          onKeyDown={(e: KeyboardEvent) => isEditable && handleEnter(i + 1, e)}
+          onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleEnter(i + 1, e)}
+
         />
       );
     });
@@ -44,7 +45,7 @@ export const Rating = ({ isEditable = false, rating, setRating }: IRating) => {
     }
   };
 
-  const handleEnter = (i: number, e: KeyboardEvent) => {
+  const handleEnter = (i: number, e: KeyboardEvent<SVGElement>) => {
     if (e.code === "Enter" && setRating) setRating(i);
   };
 
