@@ -19,7 +19,7 @@ export const generateStaticParams = async (): Promise<{ alias: string }[]> => {
 };
 
 
-const Course = async ({ params: { alias }}: Params) => {
+const Course = async ({ params: { alias } }: Params) => {
   const page = await getPage(alias);
   const product = await getProducts(page.category);
 
