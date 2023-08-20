@@ -18,7 +18,7 @@ const RootLayout = async ({
 }: {
   children: React.ReactNode
 }) => {
-  const menu = await getMenu();
+  const menu = await getMenu(TopLevelCategory.Courses);
 
   return (
     <html lang="en">

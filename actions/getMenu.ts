@@ -1,8 +1,8 @@
 import { IMenuItem } from "@/models";
+import { TopLevelCategory } from "@/models/IPage/IPage";
 
 
-export const getMenu = async (): Promise<IMenuItem[]> => {
-  const firstCategory = 0;
+export const getMenu = async (firstCategory: TopLevelCategory): Promise<IMenuItem[]> => {
   const requestOptions: RequestInit = {
     method: "POST",
     body: JSON.stringify({
@@ -12,7 +12,13 @@ export const getMenu = async (): Promise<IMenuItem[]> => {
       "Content-type": "application/json",
     },
   };
-  return await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, requestOptions)
-    .then(res => res.json())
-    .catch(error => console.error(error));
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, requestOptions);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+  // .then(res => res.json())
+  // .catch(error => console.error(error));
 };
