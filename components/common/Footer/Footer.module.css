@@ -10,7 +10,7 @@
   width: 1200px;
   display: grid;
   grid-template-columns: 1fr auto auto;
-  gap: 10px 40px;
+  grid-gap: 10px 40px;
 }
 
 .contentWrapper p {

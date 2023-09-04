@@ -1,7 +1,6 @@
 .sidebar {
     display: grid;
     align-content: start;
-    padding-top: 35px;
-    gap: 20px;
+    grid-gap: 20px;
 }
 

@@ -19,6 +19,4 @@ export const getMenu = async (firstCategory: TopLevelCategory): Promise<IMenuIte
   }
 
   return res.json();
-  // .then(res => res.json())
-  // .catch(error => console.error(error));
 };

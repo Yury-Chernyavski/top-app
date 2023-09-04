@@ -16,7 +16,6 @@ const TypeCategory = ({ params: { type }}: IType) => {
   const firstCategoryItem = firstLevelMenu.find(m => m.route === type);
   if (!type || !firstCategoryItem) notFound();
 
-
   return (
     <div>
       Type: {type}

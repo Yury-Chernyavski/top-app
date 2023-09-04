@@ -22,3 +22,11 @@ body {
   --green-light: #C8F8E4;
 }
 
+h1, h2, h3, p {
+  margin: 0;
+}
+
+section {
+  margin-bottom: 35px;
+}
+

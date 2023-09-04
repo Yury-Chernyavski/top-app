@@ -3,7 +3,7 @@ import style from "./layout.module.css";
 import { Inter } from "next/font/google";
 import { Footer, Header, Sidebar } from "@/components/common";
 import { AppContextProvider } from "@/context/app.context";
-import { getMenu } from "@/actions/getMenu";
+import { getMenu } from "@/api/getMenu";
 import { TopLevelCategory } from "@/models/IPage/IPage";
 
 const inter = Inter({ subsets: ["latin"] });
