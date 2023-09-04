@@ -1,7 +1,7 @@
 import React from "react";
-import { Menu } from "@/components/common/Menu/Menu";
 import Logo from "../assets/Logo_OWL.svg";
 import style from "./Sidebar.module.css";
+import { Menu } from "@/components/common";
 
 export const Sidebar = () => {
   return (

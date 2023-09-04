@@ -1,11 +1,13 @@
 import React from "react";
-import { getPage } from "@/actions/getPage";
-import { getProducts } from "@/actions/getProducts";
-import { getMenu } from "@/actions/getMenu";
+import { getPage } from "@/api/getPage";
+import { getProducts } from "@/api/getProducts";
+import { getMenu } from "@/api/getMenu";
 import { firstLevelMenu } from "@/helpers/helpers";
 import { notFound } from "next/navigation";
+import { TopPageComponent } from "@/components";
+import { TopLevelCategory } from "@/models/IPage/IPage";
 
-interface ICourse {
+interface ITopPage {
   params: {
     type: string,
     alias: string
@@ -18,26 +20,23 @@ export const generateStaticParams = async () => {
     const menu = await getMenu(m.id);
     paths = paths.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
   }
-  // console.log(paths);
   return paths;
 };
 
 
-const Course = async ({ params: { alias, type } }: ICourse) => {
-
+const TopPage = async ({ params: { alias, type } }: ITopPage) => {
   try {
     const page = await getPage(alias);
     const product = await getProducts(page.category);
 
     return (
-      <div>
-        {type}:
-        {product.length}
-      </div>
+      <>
+        <TopPageComponent firstCategory={TopLevelCategory[type]} products={product} page={page}/>
+      </>
     );
   } catch {
     return notFound();
   }
 };
 
-export default Course;
+export default TopPage;

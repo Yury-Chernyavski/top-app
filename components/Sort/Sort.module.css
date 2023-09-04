@@ -1,0 +1,29 @@
+.sort {
+    display: flex;
+    gap: 0 45px;
+    cursor: pointer;
+}
+
+.sort .active {
+    cursor: default;
+    color: var(--primary);
+}
+
+.sort .active p {
+    font-weight: 700;
+}
+
+.sortTrigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sortIcon {
+    display: none;
+}
+
+.active .sortIcon {
+    display: block;
+    margin-right: 8px;
+}
