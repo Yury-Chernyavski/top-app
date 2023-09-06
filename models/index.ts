@@ -11,4 +11,5 @@ export { type IPage } from "./IPage/IPage";
 export { type IProduct } from "./IProduct/IProduct";
 export { type ICard } from "./ICard/ICard";
 export { type TSkillsData } from "./TSkillsData/TSkillsData";
-export {type ISort} from "./ISort/ISort";
+export { type ISort } from "./ISort/ISort";
+export { SortEnum } from "./ISort/ISort";

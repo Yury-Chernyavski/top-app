@@ -4,6 +4,6 @@ export enum SortEnum {
 }
 
 export interface ISort {
-  sort?: SortEnum;
-  setSort?: (sort: SortEnum) => void;
+  sort: SortEnum;
+  setSort: (sort: SortEnum) => void;
 }

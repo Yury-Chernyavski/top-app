@@ -6,12 +6,12 @@ import { TopLevelCategory } from "@/models/IPage/IPage";
 import style from "./Menu.module.css";
 import cn from "classnames";
 import { useParams } from "next/navigation";
-import { AppContext } from "@/context/app.context";
+import { MenuContext } from "@/context/menu/menuContext";
 import { firstLevelMenu } from "@/helpers/helpers";
 
 
 export const Menu = () => {
-  const { menu, firstCategory, setMenu } = useContext(AppContext);
+  const { menu, firstCategory, setMenu } = useContext(MenuContext);
   const params = useParams();
 
   const openSecondLevel = (secondCategory: string) => {
