@@ -3,23 +3,23 @@ import { createContext, PropsWithChildren, useState } from "react";
 import { IMenuItem } from "@/models";
 import { TopLevelCategory } from "@/models/IPage/IPage";
 
-export interface IAppContext {
+interface IMenuContext {
   menu: IMenuItem[],
   firstCategory: TopLevelCategory,
   setMenu?: (newMenu: IMenuItem[]) => void
 }
 
-export const AppContext = createContext<IAppContext>({
+export const MenuContext = createContext<IMenuContext>({
   menu: [],
   firstCategory: TopLevelCategory.Courses,
 });
 
 
-export const AppContextProvider = ({
+export const MenuContextProvider = ({
   menu,
   firstCategory,
   children
-}: PropsWithChildren<IAppContext>) => {
+}: PropsWithChildren<IMenuContext>) => {
   const [menuState, setMenuState] = useState<IMenuItem[]>(menu);
 
   const setMenu = (newMenu: IMenuItem[]) => {
@@ -27,8 +27,8 @@ export const AppContextProvider = ({
   };
 
   return (
-    <AppContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
+    <MenuContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
       {children}
-    </AppContext.Provider>
+    </MenuContext.Provider>
   );
 };

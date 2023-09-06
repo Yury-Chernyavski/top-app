@@ -4,8 +4,8 @@ import { getProducts } from "@/api/getProducts";
 import { getMenu } from "@/api/getMenu";
 import { firstLevelMenu } from "@/helpers/helpers";
 import { notFound } from "next/navigation";
-import { TopPageComponent } from "@/components";
 import { TopLevelCategory } from "@/models/IPage/IPage";
+import { TopPageComponent } from "@/components";
 
 interface ITopPage {
   params: {

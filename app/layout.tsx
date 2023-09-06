@@ -2,7 +2,7 @@ import "./globals.css";
 import style from "./layout.module.css";
 import { Inter } from "next/font/google";
 import { Footer, Header, Sidebar } from "@/components/common";
-import { AppContextProvider } from "@/context/app.context";
+import { MenuContextProvider } from "@/context/menu/menuContext";
 import { getMenu } from "@/api/getMenu";
 import { TopLevelCategory } from "@/models/IPage/IPage";
 
@@ -23,7 +23,7 @@ const RootLayout = async ({
   return (
     <html lang="en">
     <body className={inter.className}>
-    <AppContextProvider menu={menu} firstCategory={TopLevelCategory.Courses}>
+    <MenuContextProvider menu={menu} firstCategory={TopLevelCategory.Courses}>
       <div className={style.contentWrapper}>
         <Header />
         <Sidebar />
@@ -32,7 +32,7 @@ const RootLayout = async ({
         </main>
         <Footer />
       </div>
-    </AppContextProvider>
+    </MenuContextProvider>
     </body>
     </html>
   );
