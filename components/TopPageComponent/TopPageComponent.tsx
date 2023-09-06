@@ -1,35 +1,21 @@
-"use client";
-
-import React, { ReducerState, useReducer } from 'react';
+import React from 'react';
 import parse from "html-react-parser";
-import { AdvantagesData, SkillsData, Sort, VacanciesData } from "@/components";
 import { Heading, Tag } from "@/theme/components";
 import { ITopPageCategory } from "@/models/ITopPageCategory/ITopPageCategory";
 import style from "./TopPageComponent.module.css";
-import { sortReducer, SortReducerState } from "@/components/TopPageComponent/sort.reducer";
-import { SortEnum } from "@/models";
+import { AdvantagesData, SkillsData, Sort, VacanciesData } from "@/components";
 
-
-const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) => {
-  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
-    sort: SortEnum.Rating,
-    products
-  } as ReducerState<SortReducerState>);
-
-  const setSort = (sort: SortEnum) => {
-    dispatchSort({ type: sort });
-  };
-
+export const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) => {
   return (
     <>
       <section>
         <div className={style.title}>
           <Heading variant="h1">{page.title}</Heading>
           <Tag color="grey" size="m">{products.length}</Tag>
-          <Sort sort={sort} setSort={setSort}/>
+          <Sort/>
         </div>
         <div>
-          {sortedProducts.map(p => (<div key={p._id}>{p.title}</div>))}
+          {products.map(p => (<div key={p._id}>{p.title}</div>))}
         </div>
       </section>
       <section>
@@ -55,5 +41,3 @@ const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) =
     </>
   );
 };
-
-export default TopPageComponent;

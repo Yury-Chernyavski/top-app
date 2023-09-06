@@ -1,4 +1,4 @@
-import { Button, Heading, Tag, Text } from "@/theme/components";
+import { Button, Heading, Input, Tag, Text, Textarea } from "@/theme/components";
 import React from "react";
 
 
@@ -21,6 +21,10 @@ const Home = () => {
         middle-level web designers.
       </Text>
       <Tag color="green">medium tag</Tag>
+      <Input placeholder={"Name"}/>
+      <div>
+        <Textarea placeholder="Feedback"/>
+      </div>
     </>
   );
 };

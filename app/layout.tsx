@@ -6,7 +6,7 @@ import { MenuContextProvider } from "@/context/menu/menuContext";
 import { getMenu } from "@/api/getMenu";
 import { TopLevelCategory } from "@/models/IPage/IPage";
 
-const inter = Inter({ subsets: ["latin"] });
+export const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
