@@ -13,7 +13,7 @@ export const Sidebar = () => {
       <Link href="/">
         <Logo className={style.logo}/>
       </Link>
-      <div>Search</div>
+      <Search/>
       <Menu/>
     </aside>
   );
