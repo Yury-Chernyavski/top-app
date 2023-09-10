@@ -15,6 +15,15 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "courses-top.ru",
+        port: "",
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;

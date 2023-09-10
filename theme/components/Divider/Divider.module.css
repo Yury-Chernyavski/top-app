@@ -1,0 +1,6 @@
+.hr {
+    background-color: var(--gray-light);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}

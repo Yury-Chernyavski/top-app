@@ -31,7 +31,7 @@ const TopPage = async ({ params: { alias, type } }: ITopPage) => {
 
     return (
       <>
-        <TopPageComponent firstCategory={TopLevelCategory[type]} products={product} page={page}/>
+        <TopPageComponent firstCategory={TopLevelCategory[type]} products={product} page={page} />
       </>
     );
   } catch {

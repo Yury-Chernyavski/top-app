@@ -13,5 +13,6 @@ export { type ICard } from "./ICard/ICard";
 export { type TSkillsData } from "./TSkillsData/TSkillsData";
 export { type ISort } from "./ISort/ISort";
 export { SortEnum } from "./ISort/ISort";
-export {type IInput} from "./IInput/IInput";
-export {type ITextarea} from "./ITextarea/ITextarea";
+export { type IInput } from "./IInput/IInput";
+export { type ITextarea } from "./ITextarea/ITextarea";
+export { type ITopPageCategory } from "./ITopPageCategory/ITopPageCategory";
