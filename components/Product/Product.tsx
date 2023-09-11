@@ -9,33 +9,29 @@ import { Divider } from "@/theme/components/Divider/Divider";
 export const Product = ({ product }: { product: IProduct }) => {
   return (
     <Card className={style.product} color="white">
-      <div className={style.logo}>
-        <Image src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} width="70" height="70" />
+      <div className={style.productTitle}>
+        <Image className={style.logo} src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} width="70" height="70" />
+        <Heading variant="h2" className={style.title}>
+          {product.title}
+        </Heading>
+        <div className={style.tags}>
+          {product.categories.map(c => <Tag key={c}>{c}</Tag>)}
+        </div>
       </div>
-      <Heading variant="h2" className={style.title}>
-        {product.title}
-      </Heading>
-      <div className={style.price}>
-        {priceRu(product.price)}
-        {product.oldPrice && <Tag className={style.oldPrice} color="green">{priceRu(product.price - product.oldPrice)}</Tag>}
-      </div>
-      <div className={style.credit}>
-        {priceRu(product.credit)}/<span className={style.month}>mon.</span>
-      </div>
-      <div className={style.rating}>
-        <Rating rating={product.reviewAvg ?? product.initialRating} />
-      </div>
-      <div className={style.tags}>
-        {product.categories.map(c => <Tag className={style.category} key={c}>{c}</Tag>)}
-      </div>
-      <div className={style.priceTitle}>
-        price
-      </div>
-      <div className={style.creditTitle}>
-        credit
-      </div>
-      <div className={style.ratingTitle}>
-        {product.reviewCount} review
+      <div className={style.productInfo}>
+        <div className={style.price}>
+          {priceRu(product.price)}
+          {product.oldPrice && <Tag className={style.oldPrice} color="green">{priceRu(product.price - product.oldPrice)}</Tag>}
+        </div>
+        <div className={style.credit}>
+          {priceRu(product.credit)}/<span className={style.month}>mon.</span>
+        </div>
+        <div className={style.rating}>
+          <Rating rating={product.reviewAvg ?? product.initialRating} />
+        </div>
+        <Text className={style.priceTitle}>price</Text>
+        <Text className={style.creditTitle}>credit</Text>
+        <Text className={style.ratingTitle}>{product.reviewCount} review</Text>
       </div>
       <Divider className={style.hr}/>
       <div className={style.description}>

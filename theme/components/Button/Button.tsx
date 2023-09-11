@@ -1,9 +1,6 @@
 import React from "react";
-
 import cn from "classnames";
-
 import styles from "./Button.module.css";
-
 import { ArrowIcon } from "@/theme/components/Button/assets";
 import { IButton } from "@/models";
 
