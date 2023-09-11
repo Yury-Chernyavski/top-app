@@ -30,17 +30,19 @@
   background-color: #B3C0D9;
   color: var(--white);
   font-weight: bold;
+
 }
 
 .green {
   background-color: var(--green-light);
   color: var(--green);
   font-weight: bold;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 .primary {
   color: var(--primary);
   font-weight: bold;
-
   border: 1px solid var(--primary);
 }

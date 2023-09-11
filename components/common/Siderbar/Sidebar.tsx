@@ -11,10 +11,10 @@ export const Sidebar = () => {
   return (
     <aside className={style.sidebar}>
       <Link href="/">
-        <Logo className={style.logo}/>
+        <Logo className={style.logo} />
       </Link>
-      <Search/>
-      <Menu/>
+      <Search />
+      <Menu />
     </aside>
   );
 };

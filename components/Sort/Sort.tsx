@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 import { ISort, SortEnum } from "@/models";
 import SortIcon from "./assets/Sort.svg";
 import style from "./Sort.module.css";
@@ -11,12 +11,12 @@ export const Sort = ({ sort, setSort }: ISort) => {
   return (
     <div className={style.sort}>
       <div
-        className={cn(style.sortTrigger,{
+        className={cn(style.sortTrigger, {
           [style.active]: sort === SortEnum.Rating
         })}
         onClick={() => setSort(SortEnum.Rating)}
       >
-        <SortIcon className={style.sortIcon}/>
+        <SortIcon className={style.sortIcon} />
         <Text variant="m">По рейтингу</Text>
       </div>
       <div
@@ -25,7 +25,7 @@ export const Sort = ({ sort, setSort }: ISort) => {
         })}
         onClick={() => setSort(SortEnum.Price)}
       >
-        <SortIcon className={style.sortIcon}/>
+        <SortIcon className={style.sortIcon} />
         <Text variant="m">По цене</Text>
       </div>
     </div>
