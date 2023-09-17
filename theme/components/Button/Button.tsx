@@ -4,7 +4,13 @@ import styles from "./Button.module.css";
 import { ArrowIcon } from "@/theme/components/Button/assets";
 import { IButton } from "@/models";
 
-export const Button = ({ children, variant, arrow = "none", className, ...props }: IButton) => (
+export const Button = ({
+  children,
+  variant,
+  arrow = "none",
+  className,
+  ...props
+}: IButton) => (
   <button
     className={cn(className, styles.button, {
       [styles.primary]: variant === "primary",

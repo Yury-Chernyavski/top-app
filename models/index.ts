@@ -16,3 +16,6 @@ export { SortEnum } from "./ISort/ISort";
 export { type IInput } from "./IInput/IInput";
 export { type ITextarea } from "./ITextarea/ITextarea";
 export { type ITopPageCategory } from "./ITopPageCategory/ITopPageCategory";
+export { type ITopPageTitle } from "./ITopPageTitle/ITopPageTitle";
+export { type IReview } from "./IReview/IReview";
+export { type IReviewForm, type IReviewSentResponse } from "./IReviewForm/IReviewForm";

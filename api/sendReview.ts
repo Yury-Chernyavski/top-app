@@ -1,19 +1,18 @@
-import { IMenuItem } from "@/models";
-import { TopLevelCategory } from "@/models/IPage/IPage";
+import { IReviewForm, IReviewSentResponse } from "@/models";
 import { API } from "@/helpers/api";
 
-
-export const getMenu = async (firstCategory: TopLevelCategory): Promise<IMenuItem[]> => {
+export const sendReview = async (formData: IReviewForm, productId: string): Promise<IReviewSentResponse> => {
   const requestOptions: RequestInit = {
     method: "POST",
     body: JSON.stringify({
-      firstCategory
+      ...formData,
+      productId
     }),
     headers: {
       "Content-type": "application/json",
     },
   };
-  const res = await fetch(API.topPage.find, requestOptions);
+  const res = await fetch(API.review.createDemo, requestOptions);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

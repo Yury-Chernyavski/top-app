@@ -1,11 +1,17 @@
 "use client";
-import React, { KeyboardEvent, useEffect, useState } from "react";
+
+import React, { ForwardedRef, forwardRef, KeyboardEvent, useEffect, useState } from "react";
 import { IRating } from "@/models";
 import StarIcon from "./assets/Vector.svg";
 import cn from "classnames";
 import style from "./Rating.module.css";
 
-export const Rating = ({ isEditable = false, rating, setRating }: IRating) => {
+export const Rating = forwardRef(({
+  isEditable = false,
+  rating,
+  setRating,
+  error
+}: IRating, ref: ForwardedRef<HTMLDivElement>) => {
   const [ratingArray, setRatingArray] = useState<React.JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {
@@ -51,13 +57,16 @@ export const Rating = ({ isEditable = false, rating, setRating }: IRating) => {
 
 
   return (
-    <div>
+    <div ref={ref} className={cn(style.ratingWrapper, {
+      [style.error]: error
+    })}>
       {ratingArray.map((star, i) => <span
         key={i}
         onMouseEnter={() => changeDisplay(i + 1)}
         onMouseLeave={() => changeDisplay(rating)}
         onClick={() => changeRating(i + 1)}
       >{star}</span>)}
+      {error && <div className={style.errorMessage}>{error.message}</div>}
     </div>
   );
-};
+});
