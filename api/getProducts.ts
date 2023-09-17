@@ -1,7 +1,8 @@
 import { IProduct } from "@/models";
+import { API } from "@/helpers/api";
 
 export const getProducts = async (category: string): Promise<IProduct[]> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/product/find`, {
+  const res = await fetch(API.product.find, {
     method: "POST",
     body: JSON.stringify({
       category: category,

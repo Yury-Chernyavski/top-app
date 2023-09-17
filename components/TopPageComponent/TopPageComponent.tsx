@@ -1,35 +1,14 @@
-"use client";
-
-import React, { ReducerState, useReducer } from "react";
+import React from "react";
 import parse from "html-react-parser";
-import { AdvantagesData, Product, SkillsData, Sort, VacanciesData } from "@/components";
+import { AdvantagesData, SkillsData, TopPageTitle, VacanciesData } from "@/components";
 import { Heading, Tag } from "@/theme/components";
 import style from "./TopPageComponent.module.css";
-import { sortReducer, SortReducerState } from "@/components/TopPageComponent/sort.reducer";
-import { ITopPageCategory, SortEnum } from "@/models";
+import { ITopPageCategory } from "@/models";
 
-const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) => {
-  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
-    sort: SortEnum.Rating,
-    products
-  } as ReducerState<SortReducerState>);
-
-  const setSort = (sort: SortEnum) => {
-    dispatchSort({ type: sort });
-  };
-
+export const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) => {
   return (
     <>
-      <section>
-        <div className={style.title}>
-          <Heading variant="h1">{page.title}</Heading>
-          <Tag color="grey" size="m">{products.length}</Tag>
-          <Sort sort={sort} setSort={setSort} />
-        </div>
-        <div>
-          {sortedProducts.map(p => (<Product key={p._id} product={p} />))}
-        </div>
-      </section>
+      <TopPageTitle page={page} products={products} />
       <section>
         <div className={style.hhTitle}>
           <Heading variant="h2">Job openings - {page.category}</Heading>
@@ -53,5 +32,3 @@ const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) =
     </>
   );
 };
-
-export default TopPageComponent;

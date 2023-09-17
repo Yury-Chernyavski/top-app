@@ -41,8 +41,13 @@
   margin-left: 10px;
 }
 
-.down{
+.down {
   transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+
+.right {
+  transform: rotate(0deg);
   transition: transform 0.2s;
 }
 
