@@ -25,7 +25,7 @@ const TopPageTitle = ({ products, page }: ITopPageTitle) => {
         <Sort sort={sort} setSort={setSort} />
       </div>
       <div>
-        {sortedProducts.map(p => (<Product key={p._id} product={p} />))}
+        {sortedProducts.map(p => (<Product layout key={p._id} product={p} />))}
       </div>
     </section>
   );

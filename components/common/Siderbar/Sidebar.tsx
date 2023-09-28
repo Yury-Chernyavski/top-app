@@ -9,12 +9,12 @@ import { Search } from "@/components/Search/Search";
 
 export const Sidebar = () => {
   return (
-    <aside className={style.sidebar}>
-      <Link href="/">
-        <Logo className={style.logo} />
+    <div className={style.sidebar}>
+      <Link href="/" aria-label="logo">
+        <Logo />
       </Link>
       <Search />
       <Menu />
-    </aside>
+    </div>
   );
 };

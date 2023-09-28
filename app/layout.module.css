@@ -12,7 +12,6 @@
 
 .contentWrapper header {
   grid-area: header;
-  display: none;
 }
 
 .contentWrapper main {
@@ -38,10 +37,6 @@
 
   .contentWrapper aside {
     display: none;
-  }
-
-  .contentWrapper header {
-    display: block;
   }
 
   .contentWrapper main {

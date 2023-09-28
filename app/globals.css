@@ -13,14 +13,14 @@ body {
 :root {
   --black: #3B434E;
   --gray-light: #EBEBEB;
-  --grey-dark: #787D85;
+  --grey-dark: #6C7077;
   --grey: #A4A4A4;
   --white: white;
-  --primary: #7653FC;
-  --primary-hover: #522CFF;
+  --primary: #7351F5;
+  --primary-hover: #5D41CB;
   --red-light: #FFA496;
   --red: #FC836D;
-  --green: #1DC37E;
+  --green: #007B48;
   --green-light: #C8F8E4;
 }
 

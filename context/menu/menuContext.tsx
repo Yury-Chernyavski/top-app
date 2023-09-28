@@ -3,7 +3,7 @@ import { createContext, PropsWithChildren, useState } from "react";
 import { IMenuItem } from "@/models";
 import { TopLevelCategory } from "@/models/IPage/IPage";
 
-interface IMenuContext {
+export interface IMenuContext {
   menu: IMenuItem[],
   firstCategory: TopLevelCategory,
   setMenu?: (newMenu: IMenuItem[]) => void

@@ -8,11 +8,11 @@ import Image from "next/image";
 import { priceRu } from "@/helpers/helpers";
 import { Divider } from "@/theme/components/Divider/Divider";
 import { Review, ReviewFrom } from "@/components";
-import cn from "classnames";
+import { motion } from "framer-motion";
 
 const Product = ({ product }: { product: IProduct }) => {
   const [isReviewOpened, setIsReviewOpened] = useState(false);
-  const reviewRef = useRef<HTMLDivElement | null>(null);
+  const reviewRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToReview = () => {
     setIsReviewOpened(true);
@@ -20,10 +20,26 @@ const Product = ({ product }: { product: IProduct }) => {
       block: "start",
       behavior: "smooth"
     });
+
+    reviewRef.current?.focus();
+  };
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.5
+      }
+    },
+    hidden: {
+      opacity: 0,
+      height: 0
+    }
   };
 
   return (
-    <div>
+    <>
       <Card
         className={style.product}
       >
@@ -107,24 +123,29 @@ const Product = ({ product }: { product: IProduct }) => {
           >Read reviews</Button>
         </div>
       </Card>
-      <Card
-        color="grey"
-        className={cn(style.reviews, {
-          [style.opened]: isReviewOpened,
-          [style.closed]: !isReviewOpened
-        })}
-        ref={reviewRef}
+      <motion.div
+        layout
+        variants={variants}
+        initial={"hidden"}
+        animate={isReviewOpened ? "visible" : "hidden"}
       >
-        {product.reviews.map(r => (
-          <div key={r._id}>
-            <Review review={r} />
-            <Divider />
-          </div>
-        ))}
-        <ReviewFrom productId={product._id} />
-      </Card>
-    </div>
+        <Card
+          color="grey"
+          className={style.reviews}
+          ref={reviewRef}
+        >
+          {product.reviews.map(r => (
+            <div key={r._id}>
+              <Review review={r} />
+              <Divider />
+            </div>
+          ))}
+          <ReviewFrom productId={product._id}/>
+        </Card>
+      </motion.div>
+    </>
   );
 };
+
 
 export default Product;
