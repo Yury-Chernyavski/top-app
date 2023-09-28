@@ -5,7 +5,10 @@ import { Heading, Tag } from "@/theme/components";
 import style from "./TopPageComponent.module.css";
 import { ITopPageCategory } from "@/models";
 
-export const TopPageComponent = ({ page, products, firstCategory }: ITopPageCategory) => {
+export const TopPageComponent = ({
+  page,
+  products
+}: ITopPageCategory) => {
   return (
     <>
       <TopPageTitle page={page} products={products} />
@@ -23,7 +26,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageCate
         </section>
       )}
       <section>
-        {page.seoText && parse(`<div class=${style.seoWrapper}>${page.seoText}<div>`)}
+        {page.seoText && parse(`<div class="${style.seoWrapper}">${page.seoText}<div>`)}
       </section>
       <section>
         <Heading variant="h2">Acquired skills</Heading>

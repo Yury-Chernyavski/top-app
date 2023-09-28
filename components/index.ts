@@ -7,3 +7,4 @@ export { default as TopPageTitle } from "./TopPageTitle/TopPageTitle";
 export { default as Product } from "./Product/Product";
 export { Review } from "./Review/Review";
 export { ReviewFrom } from "./ReviewForm/ReviewFrom";
+export { UpButton } from "./UpButton/UpButton";

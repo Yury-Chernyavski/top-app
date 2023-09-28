@@ -19,9 +19,12 @@ export const Review = ({
   } = review;
   return (
     <div className={style.review}>
-      <UserIcon className={style.user} />
+      <UserIcon />
       <div className={style.title}>
-        <Text variant="s" className={style.name}>{name}:</Text>
+        <Text
+          variant="s"
+          className={style.name}
+        >{name}:</Text>
         <Text variant="s">{title}</Text>
       </div>
       <div className={style.date}>

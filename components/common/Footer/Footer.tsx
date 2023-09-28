@@ -6,7 +6,7 @@ import { format } from "date-fns";
 
 export const Footer = () => {
   return (
-    <footer className={cn(style.footer)}>
+    <div className={cn(style.footer)}>
       <div className={style.contentWrapper}>
         <Text variant="m">OwlTop © 2020 - {format(new Date(), "yyyy")} All rights Reserved</Text>
         <a
@@ -18,6 +18,6 @@ export const Footer = () => {
           target="_blank"
         >Privacy policy</a>
       </div>
-    </footer>
+    </div>
   );
 };

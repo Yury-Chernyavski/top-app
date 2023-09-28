@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import cn from "classnames";
 import styles from "./Button.module.css";
 import { ArrowIcon } from "@/theme/components/Button/assets";
 import { IButton } from "@/models";
+import { motion } from "framer-motion";
 
 export const Button = ({
   children,
@@ -11,12 +14,14 @@ export const Button = ({
   className,
   ...props
 }: IButton) => (
-  <button
+  <motion.button
+    whileHover={{scale: 1.1}}
     className={cn(className, styles.button, {
       [styles.primary]: variant === "primary",
       [styles.second]: variant === "second"
     })}
     {...props}
+    aria-label={className}
   >
     {children}
     {arrow !== "none" && <span
@@ -27,5 +32,5 @@ export const Button = ({
     >
       <ArrowIcon />
     </span>}
-  </button>
+  </motion.button>
 );

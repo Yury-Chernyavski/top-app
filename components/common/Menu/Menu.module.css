@@ -15,8 +15,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
-
+    outline-offset: -1px;
 }
 
 .firstLevelActive,
@@ -54,12 +53,7 @@
 }
 
 .secondLevelBlock {
-    display: none;
-    margin: 5px 0 20px 5px;
-}
-
-.secondLevelBlockOpened {
-    display: block;
+    overflow: hidden;
 }
 
 .thirdLevel {
@@ -68,12 +62,16 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+    outline-offset: -1px;
 }
 
 .thirdLevelActive,
 .thirdLevel:hover {
     color: var(--primary);
+}
+
+.thirdLevel .hidden {
+    height: 0;
 }

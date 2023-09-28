@@ -5,6 +5,7 @@ import { Footer, Header, Sidebar } from "@/components/common";
 import { MenuContextProvider } from "@/context/menu/menuContext";
 import { getMenu } from "@/api/getMenu";
 import { TopLevelCategory } from "@/models/IPage/IPage";
+import { UpButton } from "@/components";
 
 export const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,19 @@ const RootLayout = async ({
     <body className={inter.className}>
     <MenuContextProvider menu={menu} firstCategory={TopLevelCategory.Courses}>
       <div className={style.contentWrapper}>
-        <Header />
-        <Sidebar />
+        <header>
+          <Header className={style.header}/>
+        </header>
+        <aside>
+          <Sidebar className={style.sidebar}/>
+        </aside>
         <main>
           {children}
         </main>
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
+        <UpButton />
       </div>
     </MenuContextProvider>
     </body>
