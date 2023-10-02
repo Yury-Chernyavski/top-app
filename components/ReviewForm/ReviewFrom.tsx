@@ -5,12 +5,15 @@ import style from "./ReviewFrom.module.css";
 import { Button, Input, Rating, Text, Textarea } from "@/theme/components";
 import CloseIcon from "./assets/close.svg";
 import { Controller, useForm } from "react-hook-form";
-import { IReviewForm } from "@/models";
+import { IReviewFormData, IReviewFrom } from "@/models";
 import { sendReview } from "@/api/sendReview";
 import cn from "classnames";
 
 
-export const ReviewFrom = ({ productId }: { productId: string }) => {
+export const ReviewFrom = ({
+  productId,
+  isOpened
+}: IReviewFrom) => {
   const {
     register,
     control,
@@ -21,7 +24,7 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string>();
 
-  const onSubmit = async (formData: IReviewForm) => {
+  const onSubmit = async (formData: IReviewFormData) => {
     try {
       const data = await sendReview(formData, productId);
 
@@ -48,6 +51,7 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
           })}
           placeholder="Name"
           error={errors.name}
+          tabIndex={isOpened ? 0 : -1}
         />
         <Input
           {...register("title", {
@@ -59,6 +63,7 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
           className={style.title}
           placeholder="Review title"
           error={errors.title}
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={style.rating}>
           <Text className={style}>Valuation</Text>
@@ -79,7 +84,12 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
               },
             }) => (
               <Rating
-                isEditable rating={value} ref={ref} setRating={onChange} error={errors.rating}
+                isEditable
+                rating={value}
+                ref={ref}
+                setRating={onChange}
+                error={errors.rating}
+                tabIndex={isOpened ? 0 : -1}
               />
             )}
           />
@@ -93,9 +103,13 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
           })} className={style.description}
           placeholder="Review text"
           error={errors.description}
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={style.submit}>
-          <Button variant="primary">Send</Button>
+          <Button
+            variant="primary"
+            tabIndex={isOpened ? 0 : -1}
+          >Send</Button>
           <Text className={style.info}>* Before publication, the review will undergo preliminary
             moderation and verification</Text>
         </div>
@@ -103,11 +117,17 @@ export const ReviewFrom = ({ productId }: { productId: string }) => {
       {isSuccess && <div className={cn(style.notification, style.success)}>
         <Text className={style.successTitle}>The feedback is send!</Text>
         <Text>Thank you for your feedback</Text>
-        <CloseIcon className={style.close} onClick={() => setIsSuccess(false)} />
+        <CloseIcon
+          className={style.close}
+          onClick={() => setIsSuccess(false)}
+        />
       </div>}
       {error && <div className={cn(style.notification, style.error)}>
         <Text>Something went wrong!</Text>
-        <CloseIcon className={style.close} onClick={() => setError(undefined)} />
+        <CloseIcon
+          className={style.close}
+          onClick={() => setError(undefined)}
+        />
       </div>}
     </form>
   );

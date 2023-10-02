@@ -17,6 +17,10 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 .sortIcon {

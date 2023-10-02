@@ -1,4 +1,4 @@
-export interface IReviewForm {
+export interface IReviewFormData {
   name: string;
   title: string;
   rating: number;
@@ -7,4 +7,9 @@ export interface IReviewForm {
 
 export interface IReviewSentResponse {
   message: string;
+}
+
+export interface IReviewFrom {
+  productId: string;
+  isOpened: boolean;
 }

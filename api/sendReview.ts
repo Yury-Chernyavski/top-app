@@ -1,7 +1,7 @@
-import { IReviewForm, IReviewSentResponse } from "@/models";
+import { IReviewFormData, IReviewSentResponse } from "@/models";
 import { API } from "@/helpers/api";
 
-export const sendReview = async (formData: IReviewForm, productId: string): Promise<IReviewSentResponse> => {
+export const sendReview = async (formData: IReviewFormData, productId: string): Promise<IReviewSentResponse> => {
   const requestOptions: RequestInit = {
     method: "POST",
     body: JSON.stringify({

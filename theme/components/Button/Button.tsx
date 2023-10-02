@@ -21,7 +21,6 @@ export const Button = ({
       [styles.second]: variant === "second"
     })}
     {...props}
-    aria-label={className}
   >
     {children}
     {arrow !== "none" && <span
