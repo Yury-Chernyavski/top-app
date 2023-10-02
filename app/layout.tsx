@@ -24,13 +24,16 @@ const RootLayout = async ({
   return (
     <html lang="en">
     <body className={inter.className}>
-    <MenuContextProvider menu={menu} firstCategory={TopLevelCategory.Courses}>
+    <MenuContextProvider
+      menu={menu}
+      firstCategory={TopLevelCategory.Courses}
+    >
       <div className={style.contentWrapper}>
         <header>
-          <Header className={style.header}/>
+          <Header />
         </header>
         <aside>
-          <Sidebar className={style.sidebar}/>
+          <Sidebar />
         </aside>
         <main>
           {children}

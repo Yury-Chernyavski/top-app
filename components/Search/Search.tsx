@@ -7,12 +7,16 @@ import style from "./Search.module.css";
 import SearchIcon from "./assets/Search.svg";
 import { useRouter } from "next/navigation";
 
-export const Search = ({ className, ...props }) => {
+export const Search = ({
+  className,
+  ...props
+}) => {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
   const searchHandler = () => {
     if (search.length !== 0) router.push(`/search?${search}`);
+    setSearch("");
   };
 
   const keyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -22,7 +26,7 @@ export const Search = ({ className, ...props }) => {
   };
 
   return (
-    <div className={cn(className, style.search)} {...props}>
+    <form className={cn(className, style.search)} {...props}>
       <Input
         className={style.input}
         placeholder="Search..."
@@ -30,10 +34,15 @@ export const Search = ({ className, ...props }) => {
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={keyDownHandler}
       />
-      <Button className={style.searchButton} variant="primary" onClick={searchHandler}>
+      <Button
+        className={style.searchButton}
+        variant="primary"
+        onClick={searchHandler}
+        aria-label="Search"
+      >
         <SearchIcon />
       </Button>
       {/*{emptyField || <div className={style.error}>Enter necessary tech</div>}*/}
-    </div>
+    </form>
   );
 };

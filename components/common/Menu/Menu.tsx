@@ -144,8 +144,8 @@ export const Menu = () => {
   };
 
   return (
-    <div className={style.menu}>
+    <nav className={style.menu}>
       {buildFirstLevel()}
-    </div>
+    </nav>
   );
 };

@@ -18,4 +18,4 @@ export { type ITextarea } from "./ITextarea/ITextarea";
 export { type ITopPageCategory } from "./ITopPageCategory/ITopPageCategory";
 export { type ITopPageTitle } from "./ITopPageTitle/ITopPageTitle";
 export { type IReview } from "./IReview/IReview";
-export { type IReviewForm, type IReviewSentResponse } from "./IReviewForm/IReviewForm";
+export { type IReviewFormData, type IReviewSentResponse, type IReviewFrom } from "./IReviewForm/IReviewFormData";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./Product.module.css";
 import { IProduct } from "@/models";
 import { Button, Card, Heading, Rating, Tag, Text } from "@/theme/components";
@@ -14,15 +14,18 @@ const Product = ({ product }: { product: IProduct }) => {
   const [isReviewOpened, setIsReviewOpened] = useState(false);
   const reviewRef = useRef<null | HTMLDivElement>(null);
 
-  const scrollToReview = () => {
-    setIsReviewOpened(true);
-    reviewRef.current?.scrollIntoView({
-      block: "start",
-      behavior: "smooth"
-    });
+  console.log(isReviewOpened);
 
-    reviewRef.current?.focus();
-  };
+  useEffect(() => {
+    if (isReviewOpened) {
+      reviewRef.current?.scrollIntoView({
+        block: "start",
+        behavior: "smooth"
+      });
+
+      reviewRef.current?.focus();
+    }
+  }, [isReviewOpened]);
 
   const variants = {
     visible: {
@@ -78,9 +81,14 @@ const Product = ({ product }: { product: IProduct }) => {
           </div>
           <Text className={style.priceTitle}>price</Text>
           <Text className={style.creditTitle}>credit</Text>
-          <Text className={style.ratingTitle}><a
-            href="#ref" onClick={scrollToReview}
-          >{product.reviewCount} review</a></Text>
+          <Text className={style.ratingTitle}>
+            <a
+              href="#reviews"
+              onClick={() => setIsReviewOpened(true)}
+            >
+              {product.reviewCount} review
+            </a>
+          </Text>
         </div>
         <Divider className={style.hr} />
         <div className={style.description}>
@@ -126,13 +134,15 @@ const Product = ({ product }: { product: IProduct }) => {
       <motion.div
         layout
         variants={variants}
-        initial={"hidden"}
+        initial="hidden"
         animate={isReviewOpened ? "visible" : "hidden"}
+        className={style.reviewsWrapper}
       >
         <Card
           color="grey"
           className={style.reviews}
           ref={reviewRef}
+          tabIndex={isReviewOpened ? 0 : -1}
         >
           {product.reviews.map(r => (
             <div key={r._id}>
@@ -140,7 +150,10 @@ const Product = ({ product }: { product: IProduct }) => {
               <Divider />
             </div>
           ))}
-          <ReviewFrom productId={product._id}/>
+          <ReviewFrom
+            productId={product._id}
+            isOpened={isReviewOpened}
+          />
         </Card>
       </motion.div>
     </>

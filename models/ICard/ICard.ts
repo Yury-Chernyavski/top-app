@@ -4,4 +4,5 @@ export interface ICard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
   color?: "white" | "grey";
   children: ReactNode;
   className?: string;
+  tabIndex?: number;
 }
