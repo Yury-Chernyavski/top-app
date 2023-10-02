@@ -14,8 +14,6 @@ const Product = ({ product }: { product: IProduct }) => {
   const [isReviewOpened, setIsReviewOpened] = useState(false);
   const reviewRef = useRef<null | HTMLDivElement>(null);
 
-  console.log(isReviewOpened);
-
   useEffect(() => {
     if (isReviewOpened) {
       reviewRef.current?.scrollIntoView({
