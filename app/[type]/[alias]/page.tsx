@@ -8,22 +8,6 @@ import { TopLevelCategory } from "@/models/IPage/IPage";
 import { TopPageComponent } from "@/components";
 import { Metadata } from "next";
 
-interface ITopPage {
-  params: {
-    type: string,
-    alias: string
-  },
-}
-
-export const generateStaticParams = async () => {
-  let paths: string[] = [];
-  for (const m of firstLevelMenu) {
-    const menu = await getMenu(m.id);
-    paths = paths.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
-  }
-  return paths;
-};
-
 export const generateMetadata = async ({
   params: {
     alias,
@@ -44,6 +28,22 @@ export const generateMetadata = async ({
       type: "article"
     }
   };
+};
+
+interface ITopPage {
+  params: {
+    type: string,
+    alias: string
+  },
+}
+
+export const generateStaticParams = async () => {
+  let paths: string[] = [];
+  for (const m of firstLevelMenu) {
+    const menu = await getMenu(m.id);
+    paths = paths.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
+  }
+  return paths;
 };
 
 

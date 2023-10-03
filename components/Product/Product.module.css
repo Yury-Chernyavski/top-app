@@ -126,16 +126,23 @@
   padding: 30px;
 }
 
-/*.opened {*/
-/*  max-height: 100%;*/
-/*  padding: 30px;*/
-/*}*/
+/* .opened { */
 
-/*.closed {*/
-/*  overflow: hidden;*/
-/*  max-height: 0;*/
-/*  padding: 0;*/
-/*}*/
+/*  max-height: 100%; */
+
+/*  padding: 30px; */
+
+/* } */
+
+/* .closed { */
+
+/*  overflow: hidden; */
+
+/*  max-height: 0; */
+
+/*  padding: 0; */
+
+/* } */
 
 .ratingTitle a {
   color: var(--primary);
