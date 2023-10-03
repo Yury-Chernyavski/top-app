@@ -8,6 +8,13 @@ import { TopLevelCategory } from "@/models/IPage/IPage";
 import { TopPageComponent } from "@/components";
 import { Metadata } from "next";
 
+interface ITopPage {
+  params: {
+    type: string,
+    alias: string
+  },
+}
+
 export const generateMetadata = async ({
   params: {
     alias,
@@ -29,13 +36,6 @@ export const generateMetadata = async ({
     }
   };
 };
-
-interface ITopPage {
-  params: {
-    type: string,
-    alias: string
-  },
-}
 
 export const generateStaticParams = async () => {
   let paths: string[] = [];
