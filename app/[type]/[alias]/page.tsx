@@ -43,7 +43,6 @@ export const generateStaticParams = async () => {
     const menu = await getMenu(m.id);
     paths = paths.concat(menu.flatMap(s => s.pages.map(p => `${m.route}/${p.alias}`)));
   }
-
   return paths;
 };
 
