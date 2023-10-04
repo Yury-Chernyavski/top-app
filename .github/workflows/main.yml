@@ -16,6 +16,6 @@ jobs:
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/Yury-Chernyavski/top-app/top-app
-#          username: ${{ secrets.DOCKER_USERNAME }}
-#          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
