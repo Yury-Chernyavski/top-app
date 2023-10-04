@@ -9,7 +9,7 @@ export const getProducts = async (category: string): Promise<IProduct[]> => {
       limit: 10,
     }),
     headers: {
-      "Content-type": "application/json"
+      "Content-type": "application/js"
     },
   });
 

@@ -66,7 +66,7 @@ const TopPage = async ({
         />
       </>
     );
-  } catch {
+  } catch (e) {
     return notFound();
   }
 };
